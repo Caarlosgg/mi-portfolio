@@ -1,0 +1,76 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+
+const projects = [
+  {
+    title: "Ecom_IA",
+    desc: "Sistema de Inteligencia Artificial aplicado a comercio electrónico. Recomendación y análisis predictivo.",
+    tags: ["Python", "IA", "Machine Learning"],
+    link: "https://github.com/Caarlosgg/Ecom_IA",
+    color: "blue"
+  },
+  {
+    title: "MiFinanzas",
+    desc: "Dashboard integral para gestión financiera. Backend robusto con Spring Boot y base de datos NoSQL.",
+    tags: ["Java", "Spring Boot", "MongoDB"],
+    link: "https://github.com/Caarlosgg/MiFinanzas",
+    color: "emerald"
+  },
+  {
+    title: "Clustering Comercio Minorista",
+    desc: "Análisis de segmentación de clientes utilizando algoritmos de aprendizaje no supervisado.",
+    tags: ["Data Science", "Clustering", "Python"],
+    link: "https://github.com/Caarlosgg/CLustering_ComercioMinorista",
+    color: "purple"
+  },
+  {
+    title: "EDA Used Cars Dataset",
+    desc: "Análisis Exploratorio de Datos (EDA) profundo sobre el mercado de vehículos de segunda mano.",
+    tags: ["Pandas", "Seaborn", "Data Analysis"],
+    link: "https://github.com/Caarlosgg/EDA-UsedCarsdataset",
+    color: "orange"
+  },
+  {
+    title: "URL Analyzer",
+    desc: "Herramienta de análisis de seguridad para URLs, detectando posibles amenazas y estructuras.",
+    tags: ["Cybersecurity", "Tools", "Backend"],
+    link: "https://github.com/Caarlosgg/UrlAnalyzer",
+    color: "slate"
+  }
+];
+---
+
+<MainLayout title="Proyectos">
+  <div class="max-w-4xl mx-auto">
+    <h1 class="text-3xl md:text-5xl font-bold text-white mb-6">Mis Proyectos</h1>
+    <p class="text-slate-400 mb-12 text-lg">
+      Repositorios destacados en <span class="text-white">GitHub</span>, abarcando desde modelos de IA hasta desarrollo Full Stack.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {projects.map((project) => (
+        <a href={project.link} target="_blank" class="group relative bg-slate-900/50 border border-white/10 rounded-2xl p-6 hover:bg-white/5 transition duration-300 hover:-translate-y-1">
+          <div class="flex justify-between items-start mb-4">
+            <div class={`p-3 rounded-lg bg-${project.color}-500/10 text-${project.color}-400`}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36.5-8 3C6.72 2 4 3 4 3c-.28 1.15-.28 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/></svg>
+            </div>
+            <span class="text-slate-500 hover:text-white transition">↗</span>
+          </div>
+          
+          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition">{project.title}</h3>
+          <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+            {project.desc}
+          </p>
+
+          <div class="flex flex-wrap gap-2 mt-auto">
+            {project.tags.map((tag) => (
+              <span class="px-2 py-1 text-xs font-medium text-slate-300 bg-white/5 rounded-md border border-white/5">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</MainLayout>
